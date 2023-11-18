@@ -1,6 +1,5 @@
 class AnswersController < ApplicationController
-    
-     # 回答の登録
+  # 回答の登録
   def create
     # p params
     @question = Question.find(params[:question_id])
@@ -23,7 +22,7 @@ class AnswersController < ApplicationController
       render 'edit'
     end
   end
-  
+
   # 回答の削除
   def destroy
     @question = Question.find(params[:question_id])
@@ -31,7 +30,7 @@ class AnswersController < ApplicationController
     @answer.destroy
     redirect_to @question, status: :see_other
   end
-  
+
   private
   def answer_params
     params.require(:answer).permit(:name, :content)
