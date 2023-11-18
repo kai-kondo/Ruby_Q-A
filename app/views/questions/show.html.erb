@@ -30,6 +30,10 @@
   <p>
       <%= link_to 'Destroy Answer', [answer.question,answer], data: {turbo_method: 'delete', turbo_confirm: 'Are You Sure?' } %>
   </p>
+  
+  <p>
+      <%= link_to 'answer', edit_question_answer_path(answer.question, answer) %>
+  </p>
 <% end %>
 
 <h2>Add a answer</h2>
