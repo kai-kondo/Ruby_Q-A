@@ -1,0 +1,17 @@
+<h1>answer_edit</h1>
+
+<%= form_for([@question, @answer], url: question_answer_path(@question, @answer), method: :patch) do |form| %>
+    <div>
+        <%= form.label :name %><br>
+        <%= form.text_field :name %>
+    </div>
+    
+    <div>
+        <%= form.label :content %><br>
+        <%= form.text_field :content %>
+    </div>
+    
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>
