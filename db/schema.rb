@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_15_131354) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_19_075422) do
   create_table "answers", force: :cascade do |t|
     t.string "name"
     t.text "content"
@@ -26,6 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_15_131354) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "old"
   end
 
   add_foreign_key "answers", "questions"

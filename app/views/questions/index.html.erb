@@ -6,6 +6,7 @@
     <th>Title</th>
     <th>Name</th>
     <th>Content</th>
+    <th>old</th>
     <th></th>
   </tr>
   <% @questions.each do |question|%>
@@ -14,6 +15,7 @@
       <td><%=question.title%></td>
       <td><%=question.name%></td>
       <td><%=question.content%></td>
+      <td><%=question.old %></td>
       <td><%= link_to 'show', question_path(question) %></td>
       <td><%= link_to 'edit', edit_question_path(question) %></td>
       <td><%= link_to 'destroy', question_path(question), data: {turbo_method: 'delete', turbo_confirm: 'Are You Sure?' }%></td>
