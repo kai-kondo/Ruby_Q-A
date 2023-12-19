@@ -1,5 +1,16 @@
 h1
   | Questions
+
+/ransackを利用した検索フォームでは、form_withの代わりにsearch_form_forを使う
+= search_form_for @search do |f|
+
+  /カラム名_contとすることで、カラムに対してLIKEを使った曖昧一致検索をすることができる
+  = f.label :name_cont, "名前"
+  = f.search_field :name_cont
+
+  / /検索結果と検索フォームをクリアする
+  = link_to "クリア", questions_path
+
 = link_to 'new', new_question_path
 table
   tr
