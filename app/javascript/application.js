@@ -3,4 +3,5 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "bootstrap"
 
-Turbo.session.drive = false
+// Turbo.session.drive = false
+application.debag = true
