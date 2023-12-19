@@ -2,10 +2,10 @@ require_relative "boot"
 
 require "rails/all"
 
-# タイムゾーンを日本にする
-config.time_zone = "Tokyo"
-# デフォルトのロケールを日本にする
-config.i18n.default_local = :ja
+# # タイムゾーンを日本にする
+# config.time_zone = "Tokyo"
+# # デフォルトのロケールを日本にする
+# config.i18n.default_local = :ja
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
