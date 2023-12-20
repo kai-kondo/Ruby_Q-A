@@ -1,26 +1,63 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<h1>Questions</h1>
-<%= link_to 'new', new_question_path %>
+<%# ----------------見出し----------------------- %>
+<h1 class = "fw-bold">
+  <span class = "me-1">
+  Question
+  </span>
+</h1>
+
+<%# ----------------NEWボタン----------------------- %>
+<div class = "col-4 d-flex aligin-items-end">
+<%= link_to 'new', new_question_path, class:"btn btn-outline-secondary"%>
+</div>
+
+
+<%# ----------------テーブル----------------------- %>
 <table class = "table table-striped table-sm">
-  <tr>
+<div class = "card shadow mt-3">
+    <tr>
     <th scope="row">ID</th>
     <th scope="row">Title</th>
     <th scope="row">Name</th>
     <th scope="row">Content</th>
     <th scope="row">old</th>
-  </tr>
-  <% @questions.each do |question|%>
-    <tr>
-      <td><%=question.id%></td>
-      <td><%=question.title%></td>
-      <td><%=question.name%></td>
-      <td><%=question.content%></td>
-      <td><%=question.old %></td>
-      <td ><%= link_to 'show', question_path(question), class: 'btn btn-primary' %></td>
-      <td><%= link_to 'edit', edit_question_path(question), class: 'btn btn-primary' %></td>
-      <td><%= link_to 'destroy', question_path(question), data: {turbo_method: 'delete', turbo_confirm: 'Are You Sure?' }, class: 'btn btn-primary'%></td>
     </tr>
+  
+
+  <div class = "card-body mx-3">
+    <div class = "row py-2">
+    <% @questions.each do |question|%>
+    <tr>
+      <div class= "col-4 mt-auto">
+      <td><%=question.id%></td>
+      </div>
+
+      <div class= "col-4 mt-auto">
+      <td><%=question.title%></td>
+      </div>
+
+      <div class= "col-4 mt-auto">
+      <td><%=question.name%></td>
+      </div>
+
+      <div class= "col-4 mt-auto">
+      <td><%=question.content%></td>
+      </div>
+
+      <div class= "col-4 mt-auto">
+      <td><%=question.old %></td>
+      </div>
+
+      <div class = "col-2 d-flex justify-content-end">
+      <td ><%= link_to 'show', question_path(question), class: 'btn btn-outline-primary me-0' %></td>
+      <td><%= link_to 'edit', edit_question_path(question), class: 'btn btn-outline-primary me-0' %></td>
+      <td><%= link_to 'destroy', question_path(question), data: {turbo_method: 'delete', turbo_confirm: 'Are You Sure?' }, class: 'btn btn-outline-primary me-0'%></td>
+      </div>
+    </tr>
+    </div>
+  </div>
   <%end%>
 </table>
+</div>
