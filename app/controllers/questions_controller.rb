@@ -17,7 +17,6 @@ class QuestionsController < ApplicationController
         # もしくは空のコレクションを設定するか、何らかのデフォルトを行う
         @questions = Question.none
       end
-
   end
 
   #質問の一覧表示

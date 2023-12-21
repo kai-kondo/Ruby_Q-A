@@ -1,7 +1,7 @@
 h1
   | Questions
 
-/ 検索フォーム
+/ --------検索フォーム-------------
 
 / data-turbo-frame属性を指定する
 = search_form_for @search,
@@ -12,7 +12,7 @@ h1
   = f.search_field :name_cont
 
 
-/ テーブル
+/ ------テーブル---------------
 
 = link_to 'new', new_question_path
 table
