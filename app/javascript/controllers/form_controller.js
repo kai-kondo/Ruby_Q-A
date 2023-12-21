@@ -4,6 +4,13 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   // コントローラーに紐づく要素（フォーム）をsubmitするアクション
   submit() {
-    this.element.requestSubmit()
+    // セットされているTimeoutをクリアする
+    clearTimeout(this.timeout)
+
+    // timeoutをセットする
+    this.timeout = setTimeout(() => {
+      this.element.requestSubmit()
+
+    }, 200)
   }
 }
