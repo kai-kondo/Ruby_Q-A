@@ -1,0 +1,47 @@
+h1
+  | Show
+p
+  |  Title:
+  br
+  = @question.title
+p
+  |  Name:
+  br
+  = @question.name
+p
+  |  Content:
+  br
+  = @question.content
+p
+  |  Old:
+  br
+  = @question.old
+h2
+  | Answers
+- @question.answers.each do |answer|
+  p
+    |  Name:
+  br
+  = answer.name
+  p
+    |  Content:
+  br
+  = answer.content
+  p
+    = link_to 'Destroy Answer', [answer.question,answer], data: {turbo_method: 'delete', turbo_confirm: 'Are You Sure?' }
+  p
+    = link_to 'Edit Answer', edit_question_answer_path(answer.question, answer)
+h2
+  | Add a answer
+= form_with model: [@question, @question.answers.build] do |form|
+  div
+    = form.label :name
+  br
+  = form.text_field :name
+  div
+    = form.label :content
+  br
+  = form.text_field :content
+  div
+    = form.submit
+= link_to 'top', questions_path
