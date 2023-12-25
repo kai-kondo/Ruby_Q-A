@@ -1,0 +1,14 @@
+/ modalという<turbo-frame>で囲う
+= turbo_frame_tag "modal" do
+  / modalコントローラーをアタッチする
+  div  class = "modal fade" data-controller = "modal"
+    div class = "modal-dialog"
+      div class = "modal-content"
+        div class = "modal-header"
+          h5 class = "modal-title"
+            = title
+          button type = "button" class = "btn-close" data-bs-dismiss = "modal" aria-label = "Close"
+
+        div class = "modal-body"
+          = yield
+        
