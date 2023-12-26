@@ -16,6 +16,7 @@ table
     th
   - @questions.each do |question|
     tr
+<<<<<<< HEAD
       td
         =question.id
       td
@@ -32,3 +33,22 @@ table
         = link_to 'edit', edit_question_path(question)
       td
         = link_to 'destroy', question_path(question), data: {turbo_method: 'delete', turbo_confirm: 'Are You Sure?' }
+=======
+
+    td
+      =question.id
+    td
+      =question.title
+    td
+      =question.name
+    td
+      =question.content
+    td
+      =question.old
+    td
+      = link_to 'show', question_path(question)
+    td
+      = link_to 'edit', edit_question_path(question)
+    td
+      = link_to 'destroy', question_path(question), data: {turbo_method: 'delete', turbo_confirm: 'Are You Sure?' }
+>>>>>>> e7b046a881eecb0398a212a25de1db90f57fa83d
