@@ -1,0 +1,13 @@
+h1
+  | answer_edit
+= form_for([@question, @answer], url: question_answer_path(@question, @answer), method: :patch) do |form|
+  div
+    = form.label :name
+    br
+    = form.text_field :name
+  div
+    = form.label :content
+    br
+    = form.text_field :content
+  div
+    = form.submit
