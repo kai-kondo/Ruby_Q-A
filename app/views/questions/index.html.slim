@@ -1,10 +1,8 @@
 h1
   | Questions
 / --------検索フォーム-------------
-= turbo_frame_tag "question_list" do
-
-  = search_form_for @search,
-    html: {data: { turbo_frame: "question_list",controller: "form", action: "input->form#submit" } } do |f|
+= search_form_for @search,
+  html: {data: { turbo_frame: "question_list",controller: "form", action: "input->form#submit" } } do |f|
 
 
     = f.label :name_cont, "名前"
