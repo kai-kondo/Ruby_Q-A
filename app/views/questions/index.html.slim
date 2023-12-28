@@ -1,18 +1,14 @@
 h1
   | Questions
-
-h1
-  | テスト
-
 / --------検索フォーム-------------
+= turbo_frame_tag "question_list" do
 
-/ data-turbo-frame属性を指定する
-= search_form_for @search,
-  html: {data: { turbo_frame: "question_list",controller: "form", action: "input->form#submit" } } do |f|
+  = search_form_for @search,
+    html: {data: { turbo_frame: "question_list",controller: "form", action: "input->form#submit" } } do |f|
 
-  /カラム名_contとすることで、カラムに対してLIKEを使った曖昧一致検索をすることができる
-  = f.label :name_cont, "名前"
-  = f.search_field :name_cont
+
+    = f.label :name_cont, "名前"
+    = f.search_field :name_cont
 
 
 / ------テーブル---------------
