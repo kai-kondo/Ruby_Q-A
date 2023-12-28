@@ -73,3 +73,5 @@ end
 
 gem 'bootstrap', '~> 5.1.3'
 gem 'ransack'
+gem 'slim'
+gem 'html2slim'
