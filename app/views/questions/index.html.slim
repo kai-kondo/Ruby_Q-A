@@ -1,34 +1,36 @@
 h1
   | Questions
 = link_to 'new', new_question_path
-table
-  tr
-    th
-      | ID
-    th
-      | Title
-    th
-      | Name
-    th
-      | Content
-    th
-      = sort_link(@search, :old)
-    th
-  - @questions.each do |question|
+
+= turbo_frame_tag "qustion_list" do
+  table
     tr
-      td
-        =question.id
-      td
-        =question.title
-      td
-        =question.name
-      td
-        =question.content
-      td
-        =question.old
-      td
-        = link_to 'show', question_path(question)
-      td
-        = link_to 'edit', edit_question_path(question)
-      td
-        = link_to 'destroy', question_path(question), data: {turbo_method: 'delete', turbo_confirm: 'Are You Sure?' }
+      th
+        | ID
+      th
+        | Title
+      th
+        | Name
+      th
+        | Content
+      th
+        = sort_link(@search, :old)
+      th
+    - @questions.each do |question|
+      tr
+        td
+          =question.id
+        td
+          =question.title
+        td
+          =question.name
+        td
+          =question.content
+        td
+          =question.old
+        td
+          = link_to 'show', question_path(question)
+        td
+          = link_to 'edit', edit_question_path(question)
+        td
+          = link_to 'destroy', question_path(question), data: {turbo_method: 'delete', turbo_confirm: 'Are You Sure?' }
