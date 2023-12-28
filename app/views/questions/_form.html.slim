@@ -1,26 +1,7 @@
-= form_with model:@question do |form|
-  - if @question.errors.any?
-    div
-
-    ul
-      - @question.errors.full_messages.each do |message|
-        li
-          = message
-  div
-    = form.label :title
-    br
+= turbo_frame_tag @question do
+  = bootstrap_form_with(model:@question, data: { action: "turbo:submit-end->modal#close" }) do |form|
     = form.text_field :title
-  div
-    = form.label :name
-    br
     = form.text_field :name
-  div
-    = form.label :content
-    br
     = form.text_area :content
-  div
-    = form.label :old
-    br
     = form.text_field :old
-  div
-    = form.submit
+    = form.primary

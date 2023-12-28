@@ -6,9 +6,7 @@ class QuestionsController < ApplicationController
 
   #質問の一覧表示
   def show
-    # p params[:id]
     @question = Question.find(params[:id])
-    # p @question
   end
 
   #質問の作成
@@ -18,16 +16,28 @@ class QuestionsController < ApplicationController
 
   #質問の登録
   def create
-    #Questionモデルを初期化
     @question = Question.new(question_params)
-    #QuestionモデルをDBに保存
-    if @question.save
-      #showへリダイレクト
-      redirect_to @question
-    else
-      render 'new', status: :unprocessable_entity
+
+    respond_to do |format|
+        if @question.save
+          format.html { redirect_to questions_path, notice: '質問が正常に登録されました。' }
+          format.turbo_stream { render turbo_stream: turbo_stream.append('questions_list', partial: 'questions/question', locals: { question: @question }) }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.turbo_stream { render turbo_stream: turbo_stream.replace(@question, partial: "questions/form", locals: { question: @question }) }
+        end
     end
   end
+  #   #Questionモデルを初期化
+  #   @question = Question.new(question_params)
+  #   #QuestionモデルをDBに保存
+  #   if @question.save
+  #     #showへリダイレクト
+  #     redirect_to @question
+  #   else
+  #     render 'new', status: :unprocessable_entity
+  #   end
+  # end
 
   #質問の編集
   def edit

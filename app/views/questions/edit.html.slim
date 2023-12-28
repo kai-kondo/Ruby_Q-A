@@ -1,3 +1,2 @@
-h1
-  | edit
-= render partial: 'form'
+= render "modal" , title: "編集" do
+  = render partial: 'form', question: @question
