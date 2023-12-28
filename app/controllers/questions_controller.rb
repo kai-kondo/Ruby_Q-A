@@ -1,7 +1,11 @@
 class QuestionsController < ApplicationController
   #質問一覧表示
   def index
-    @questions = Question.all
+    @search = Question.ransack(params[:q])
+
+    @search.sorts = 'id desc' if @search.sorts.empty?
+
+    @questions = @search.result.page(params[:page])
   end
 
   #質問の一覧表示

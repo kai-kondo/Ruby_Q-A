@@ -12,7 +12,7 @@ table
     th
       | Content
     th
-      | old
+      = sort_link(@search, :old)
     th
   - @questions.each do |question|
     tr
