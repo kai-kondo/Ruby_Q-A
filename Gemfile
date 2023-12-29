@@ -75,3 +75,7 @@ gem 'bootstrap', '~> 5.1.3'
 
 gem 'slim'
 gem 'html2slim'
+gem "ransack"
+gem 'slim-rails'
+gem 'html2slim'
+gem 'kaminari'

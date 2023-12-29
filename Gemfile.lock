@@ -114,6 +114,18 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    kaminari (1.2.2)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.2)
+      kaminari-activerecord (= 1.2.2)
+      kaminari-core (= 1.2.2)
+    kaminari-actionview (1.2.2)
+      actionview
+      kaminari-core (= 1.2.2)
+    kaminari-activerecord (1.2.2)
+      activerecord
+      kaminari-core (= 1.2.2)
+    kaminari-core (1.2.2)
     loofah (2.21.4)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -180,6 +192,10 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.1.0)
+    ransack (4.1.1)
+      activerecord (>= 6.1.5)
+      activesupport (>= 6.1.5)
+      i18n
     rdoc (6.6.0)
       psych (>= 4.0.0)
     regexp_parser (2.8.2)
@@ -202,6 +218,10 @@ GEM
     slim (5.2.0)
       temple (~> 0.10.0)
       tilt (>= 2.1.0)
+    slim-rails (3.6.3)
+      actionpack (>= 3.1)
+      railties (>= 3.1)
+      slim (>= 3.0, < 6.0, != 5.0.0)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -246,11 +266,14 @@ DEPENDENCIES
   html2slim
   importmap-rails
   jbuilder
+  kaminari
   mysql2 (~> 0.5)
   puma (~> 5.0)
   rails (~> 7.0.8)
+  ransack
   selenium-webdriver
   slim
+  slim-rails
   sprockets-rails
   stimulus-rails
   turbo-rails

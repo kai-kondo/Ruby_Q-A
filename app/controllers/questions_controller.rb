@@ -1,7 +1,22 @@
 class QuestionsController < ApplicationController
   #質問一覧表示
   def index
-    @questions = Question.all
+    # Question.ransackでQuestionに対してransackを使う
+    # params[:q]には検索フォームで指定した検索条件が入る
+    @search = Question.ransack(params[:q])
+
+    # デフォルトのソートをid降順にする
+    @search.sorts = 'id desc' if @search.sorts.empty?
+
+    # @search.resultで検索結果となる@questionを取得する
+    # 検索結果に対してはkaminariのpageメソッドをチェーンできる
+    @questions = @search.result
+      if @questions.is_a?(ActiveRecord::Relation)
+        @questions = @questions.page(params[:page])
+      else
+        # もしくは空のコレクションを設定するか、何らかのデフォルトを行う
+        @questions = Question.none
+      end
   end
 
   #質問の一覧表示
