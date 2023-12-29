@@ -1,41 +1,5 @@
 h1
   | Questions
-= link_to 'new', new_question_path
-table
-  tr
-    th
-      | ID
-    th
-      | Title
-    th
-      | Name
-    th
-      | Content
-    th
-      | old
-    th
-  - @questions.each do |question|
-    tr
-
-    td
-      =question.id
-    td
-      =question.title
-    td
-      =question.name
-    td
-      =question.content
-    td
-      =question.old
-    td
-      = link_to 'show', question_path(question)
-    td
-      = link_to 'edit', edit_question_path(question)
-    td
-      = link_to 'destroy', question_path(question), data: {turbo_method: 'delete', turbo_confirm: 'Are You Sure?' }
-
-h1
-  | Questions
 / --------検索フォーム-------------
 = search_form_for @search,
   html: {data: { turbo_frame: "question_list",controller: "form", action: "input->form#submit" } } do |f|
